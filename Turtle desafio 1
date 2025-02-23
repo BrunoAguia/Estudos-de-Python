@@ -1,0 +1,29 @@
+from turtle import Turtle
+
+### Desafio 1 
+
+#Monte um mini-game turtle, que possibilite que o usuário
+#  controle para qual direção a tartaruga deve andar(frente/trás)
+#  e qual ângulo deverá ser tomado a cada nova movimentação
+
+t = Turtle()
+t.speed(1)
+
+while True:
+    distancia = input("Para qual direção a tartaruga deve andar? Digite 'f' para frente ou 't' para trás").lower()
+    if distancia == 'f':
+        t.forward(50)
+    if distancia == 't':
+        t.backward(50)
+
+    direcao = input("Certo, agora qual ângulo deve ser tomado? Digite 'd' para a direita ou 'e' para a esquerda").lower()
+    if direcao == 'd':
+        t.right()
+    if direcao == 'e':
+        t.left()
+    
+    jogo = input("Devemos continuar? digite 's' para sim ou 'n' para não")
+    if jogo == 'n':
+        break
+    
+input()
