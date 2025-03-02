@@ -5,13 +5,11 @@ print(objetos)
 
 #Desafio #2 Usando apenas uma linha de código, crie uma lista de 10 a 131
 
-numeros = [10, 131]
+numeros = list(range(10, 131))
 
 #Desafio #3 Imprima na tela o resultado da combinação da lista do desafio 1 e desafio 2
 
-for objeto in objetos:
-    for numeros in range(10,131):
-        print(f"{objeto} {numeros}")
+print (objetos + numeros)
 
 '''
 Desafio #4 Crie uma lista de listas(matriz) que tenha os nomes dos 3 objetos
