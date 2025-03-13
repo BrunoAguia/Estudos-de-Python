@@ -1,0 +1,18 @@
+import logging
+
+logging.basicConfig(level=logging.DEBUG, filename='app.log', filemode='a',
+                   format='%(levelname)s - %(message)s - %(asctime)s')
+
+try:
+    email = input('Digite o seu e-mail')
+    senha = int(input('Digite a sua senha bancária'))
+    if senha == 12345 and email == 'brunobruno@email.com':
+        print('Login feito com sucesso')
+        logging.info(f'{email} entrou em sua conta bancária')
+    else:
+        print("e-mail ou senha incorretos")
+        logging.warning(f'tentativa de login falhou para {email}')
+except ValueError as erro:
+    print('Digite apenas números')
+    logging.info(erro)
+    
