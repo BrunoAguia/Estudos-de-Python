@@ -1,0 +1,71 @@
+#Projeto de API de Musicas
+
+#O objetivo desse API é permitir que seja possivel a consulta de todas as canções disponiveis,
+#consulta de cançoes individuais, edição de canções existentes e também sua exclusão
+
+from flask import Flask, jsonify, request
+
+app_de_musicas = Flask(__name__)
+cancoes = [
+    {
+        'Canção': 'Ela Partiu',
+        'Artista': 'Tim Maia',
+        'Album': 'Tim Maia e Convidados',
+        'Data de Lançamento': '1977'
+    },
+    {
+        'Canção': 'Falling Away from Me',
+        'Artista': 'Korn',
+        'Album': 'Issues',
+        'Data de Lançamento': '1999'
+    },
+    {
+        'Canção': 'Invisible',
+        'Artista': 'Duran Duran',
+        'Album': 'Future Past',
+        'Data de Lançamento': '2021'
+    }
+]
+
+#Vamos utilizar o URL base: "localhost"
+
+#consultando todas as canções - http://localhost:5000/cancoes
+@app_de_musicas.route('/')
+def obter_cancoes():
+    return jsonify(cancoes)
+
+#consultando uma canção especifica - http://localhost:5000/cancoes/ + o número do indice desejado
+@app_de_musicas.route('/cancoes/<int:indice>', methods=['GET'])
+def obter_cancoes_especificas(indice):
+    return jsonify(cancoes[indice])
+
+#Inserindo uma nova canção através do POST - http://localhost:5000/cancoes
+@app_de_musicas.route('/cancoes', methods=['POST'])
+def adicionar_nova_musica():
+    musica = request.get_json()
+    cancoes.append(musica)
+
+    return jsonify(musica,200)
+
+#alterando informções de uma canção utilizando o PUT - http://localhost:5000/cancoes/ + o número do indice desejado
+@app_de_musicas.route('/cancoes/<int:indice>', methods=['PUT'])
+def alterar_cancao(indice):
+    cancao_alterada = request.get_json()
+    cancoes[indice].update(cancao_alterada)
+
+    return jsonify(cancoes[indice],200)
+
+#Excluindo uma canção especifica através do DELETE -  http://localhost:5000/cancoes/ + o número do indice desejado
+@app_de_musicas.route('/cancoes/<int:indice>', methods=['DELETE'])
+def excluir_musicas(indice):
+    try:
+        if cancoes[indice] is not None:
+            del cancoes[indice]
+            return jsonify(f"Foi excuída a canção {cancoes[indice]}", 200)
+    except:
+        return jsonify("Não foi possível encontrar a canção para a exclusão",404)
+    
+    
+
+
+app_de_musicas.run(port=5000, host='localhost',debug=True)
