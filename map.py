@@ -43,3 +43,5 @@ Concatene(adicione) a palavra 'PAGO' aos nomes da lista 'participantes' usando c
 
 print([f"{i} PAGO" if i in pagamento_realizado else i for i in participantes])
 
+
+
