@@ -1,0 +1,10 @@
+# DESAFIO 🥇
+# Calcule quantos dias faltam até o seu aniversário
+
+from datetime import datetime
+
+aniversario = datetime(2025,9,14)
+data_atual = datetime.now()
+
+dias_ate_o_aniversario = aniversario - data_atual
+print(dias_ate_o_aniversario.days)

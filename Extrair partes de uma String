@@ -1,0 +1,14 @@
+#Desafio 1
+#Encontre o índice de 'o' dentro da variável biblioteca
+biblioteca = 'Biblioteca'
+print(biblioteca.index('o'))
+
+###################
+
+#Desafio 2
+#Usando a frase abaixo, imprima apenas 'De Aplicações''
+#####
+frase = 'Desenvolvimento de Aplicações'
+
+indice_d = frase.rindex('de')
+print(frase[indice_d:])

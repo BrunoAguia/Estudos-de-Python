@@ -1,0 +1,6 @@
+celulares = ['Asus', 'Samsung', 'Sony', 'IPhone']
+versoes = ['Plus', 'Premium Plus', 'Premium Deluxe', 'Plus Premium Ultra']
+
+for x in celulares:
+    for y in versoes:
+        print(f'{x} {y}')

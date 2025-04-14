@@ -1,0 +1,12 @@
+'''
+Desafio 1
+Itere sobrea a lista abaixo exibindo o número do íncidice + nome da fruta. Porém quando o índice for 3 
+exiba N* índice + nome da fruta em Promoção
+'''
+frutas = ['Maça', 'Laranja', 'Morango', 'Limão']
+
+for numero, fruta in enumerate(frutas,0):
+    if numero == 3:
+        print(f"{numero} {fruta} EM PROMOÇÃO")
+    else:
+        print(numero,fruta)

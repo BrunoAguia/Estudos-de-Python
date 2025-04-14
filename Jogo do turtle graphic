@@ -1,0 +1,39 @@
+from turtle import Turtle
+
+### Desafio 2 
+#Usando o mini-game, desenha um quadrado passando instruções para a turtle, totalmente através do input do usuário
+
+t = Turtle()
+t.speed(1)
+
+while True:
+    direcao = input("Para qual direção a tartaruga deve movimentar? digite 'f' para frente ou 't' para trás").lower()
+    if direcao not in ['f', 't']:
+        print("Por favor, digite apenas 'f' para frente ou 't' para trás")
+        continue
+
+    distancia = int(input("Agora quantos pixels devemos andar?"))
+    if direcao == 'f':
+        t.forward(distancia)
+    elif direcao == 't':
+        t.back(distancia)
+
+    while True:
+        lado = input("Para que lado nós iremos agora? Digite 'd' para direita ou 'e' para esquerda").lower()
+        if lado not in ['d', 'e']:
+            print("Por favor, digite apenas 'd' para direita ou 'e' para a esquerda")
+        else:
+            break
+            
+
+    angulos = int(input("Quantos pixels devemos rotacionar agora?"))
+    if lado == 'd':
+        t.right(angulos)
+    elif lado == 'e':
+        t.left(angulos)
+        
+    jogo = input("Continuar andando? 's' para sim ou 'n' para não").lower()
+    if jogo == 'n':
+        break
+
+    input()
